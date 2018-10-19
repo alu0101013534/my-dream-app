@@ -11,7 +11,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class HeroService {
-
   private messageSource = new BehaviorSubject('1');
   currentMessage = this.messageSource.asObservable();
 
