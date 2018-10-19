@@ -13,13 +13,18 @@ export class PetsComponent implements OnInit {
 
     public selectedPet: Pet;
     message:string;
+    
+    show:boolean=true;
     @Output() messageEvent = new EventEmitter<string>();
     onSelect(pet: Pet): void {
         this.selectedPet = pet;
         this.sendMessage();
         
     }
+    showToggle(){
 
+      this.show=!this.show;
+   }
 
     sendMessage() {
       this.messageEvent.emit(this.selectedPet.id.toString());

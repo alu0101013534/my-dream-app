@@ -12,6 +12,7 @@ export class HeroesComponent implements OnInit {
 
     selectedHero: Hero;
     selectedPet: Pet;
+    show:boolean=true;
     onSelect(hero: Hero): void {
         this.selectedHero = hero;
         
@@ -37,13 +38,20 @@ export class HeroesComponent implements OnInit {
         this.heroService.deleteAll();
      }
 
+     showToggle(){
 
+        this.show=!this.show;
+     }
      assign(): void {
          
-      console.log("hero: ",this.selectedHero.name);
-      console.log("pet: ",this.selectedPet.name);
-        if(this.selectedPet!=null)
-            this.heroService.assignPartner(this.selectedHero,this.selectedPet);
+        if(this.selectedPet!=null){
+
+            
+        if(this.selectedPet.hero!=null){
+            this.heroService.deletePetPartner(this.selectedPet.hero);
+        }
+        this.heroService.assignPartner(this.selectedHero,this.selectedPet);
+    }
      }
      message:string;
 

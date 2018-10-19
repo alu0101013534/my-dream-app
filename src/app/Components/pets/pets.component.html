@@ -1,9 +1,13 @@
 <h2>My Pets</h2> 
-<ul class="pets">
+<a (click)="showToggle()"href="#" class="btn btn-info btn-md">
+    <div *ngIf="show; else elseBlock"><span    class="glyphicon glyphicon-eye-close"></span> &nbsp;Hide</div>
+    <ng-template #elseBlock><span  class="glyphicon glyphicon-eye-open"></span>&nbsp;Show</ng-template>
+  </a>
+<ul class="pets" *ngIf="show">
                 <!--    For por cada heroe, cuando la fila es la misma que el heroe seleccionado angular le coloca la clase selected css, cuando son diferentes angular elimina la clase -->
                 <li *ngFor="let pet of pets"
                     [class.selected]="pet === selectedPet"
                     (click)="onSelect(pet)">
-                    <span class="badge">{{pet.id}}</span> {{pet.name}}
+                    <span class="badge">{{pet.id}}</span> {{pet.name}} <img src="../../../assets/checked.png" *ngIf="pet.hero"  >
                 </li>
 </ul>

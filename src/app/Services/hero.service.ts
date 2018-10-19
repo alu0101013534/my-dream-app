@@ -93,6 +93,18 @@ export class HeroService {
 
   }
 
+  deletePetPartner(hero){
+    var i;
+    for(i=0;i<HEROES.length;i++){
+      if( HEROES[i].id==hero.id){
+          
+        HEROES[i].pet=null;
+      }
+    }
+    
+
+  }
+
   getPet(id){
     var i;
     for(i=0;i<PETS.length;i++){
@@ -116,7 +128,6 @@ export class HeroService {
   getHeroFromPet(pet){
     var i;
     if(pet.hero!=null){
-      console.log("hero id: ",pet.hero.id);
     for(i=0;i<HEROES.length;i++){
       if((HEROES[i].pet!=null) && (HEROES[i].pet.id==pet.id)){
         return HEROES[i];
@@ -138,7 +149,6 @@ export class HeroService {
 
   changeMessage(message: Pet) {
     
-    console.log("changing");
     this.messageSource.next(message.id.toString());
   }
 }
