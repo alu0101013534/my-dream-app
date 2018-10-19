@@ -8,7 +8,7 @@
     </label>
     
   </div>
-  <div><span>hero: </span>{{pet.hero.name}}</div>
+  <div *ngIf="pet.hero"><span>hero: {{pet.hero.name}}</span></div>
   <div><span>Superpower: </span>{{pet.superpower.name}}</div>
   <div><span>Superpower info: </span>{{pet.superpower.description}}</div>
 </div>

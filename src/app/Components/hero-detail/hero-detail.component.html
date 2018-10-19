@@ -8,8 +8,8 @@
     </label>
     
   </div>
-
-  <div><span>Pet: </span>{{hero.pet.name}}</div>
+  Pet:
+  <div *ngIf="hero.pet" ><span  >{{hero.pet.name}} </span></div>
   <div><span>Superpower: </span>{{hero.superpower.name}}</div>
   <div><span>Superpower info: </span>{{hero.superpower.description}}</div>
 </div>

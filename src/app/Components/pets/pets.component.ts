@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output,EventEmitter,OnInit } from '@angular/core';
 import { Pet } from '../../Classes/pet';
 import { PETS } from '../../Mocks/mock-pets';
+import { HeroService } from '../../Services/hero.service';
 
 @Component({
   selector: 'app-pets',
@@ -10,13 +11,24 @@ import { PETS } from '../../Mocks/mock-pets';
 export class PetsComponent implements OnInit {
     pets = PETS;
 
-    selectedPet: Pet;
+    public selectedPet: Pet;
+    message:string;
+    @Output() messageEvent = new EventEmitter<string>();
     onSelect(pet: Pet): void {
         this.selectedPet = pet;
+        this.sendMessage();
+        
     }
-  constructor() { }
+
+
+    sendMessage() {
+      this.messageEvent.emit(this.selectedPet.id.toString());
+      
+    }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit() {
+    this.heroService.currentMessage.subscribe(message => this.selectedPet =  this.heroService.getPet(message))
   }
 
 }

@@ -5,11 +5,15 @@ import { SuperPower } from '../Classes/superpower';
 import { HEROES } from '../Mocks/mock-heroes';
 import { PETS } from '../Mocks/mock-pets';
 import { SUPERPOWERS } from '../Mocks/mock-superpowers';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
+
+  private messageSource = new BehaviorSubject('1');
+  currentMessage = this.messageSource.asObservable();
 
   getHeroes(): Hero[] {
     return HEROES;
@@ -88,4 +92,37 @@ export class HeroService {
     
 
   }
+
+  getPet(id){
+    var i;
+    for(i=0;i<PETS.length;i++){
+      if(PETS[i].id==parseInt(id)){
+        return PETS[i];
+      }
+    
+    }
+
+  }
+
+  getHeroFromPet(pet){
+    var i;
+    if(pet.hero!=null){
+    for(i=0;i<HEROES.length;i++){
+      if(HEROES[i].pet.id==pet.id){
+        return HEROES[i];
+      }
+    
+    }
+  }
+    return null;
+
+  }
+
+
+  changeMessage(message: Pet) {
+    
+    console.log("changing");
+    this.messageSource.next(message.id.toString());
+  }
+
 }
