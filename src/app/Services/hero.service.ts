@@ -103,12 +103,22 @@ export class HeroService {
     }
 
   }
+  getHero(id){
+    var i;
+    for(i=0;i<HEROES.length;i++){
+      if(HEROES[i].id==parseInt(id)){
+        return HEROES[i];
+      }
+    
+    }
 
+  }
   getHeroFromPet(pet){
     var i;
     if(pet.hero!=null){
+      console.log("hero id: ",pet.hero.id);
     for(i=0;i<HEROES.length;i++){
-      if(HEROES[i].pet.id==pet.id){
+      if((HEROES[i].pet!=null) && (HEROES[i].pet.id==pet.id)){
         return HEROES[i];
       }
     
@@ -118,11 +128,17 @@ export class HeroService {
 
   }
 
+  assignPartner(hero,pet){
+    var h,p;
+    h=this.getHero(hero.id);
+    p=this.getPet(pet.id);
+    h.pet=p;
+    p.hero=h;
+  }
 
   changeMessage(message: Pet) {
     
     console.log("changing");
     this.messageSource.next(message.id.toString());
   }
-
 }

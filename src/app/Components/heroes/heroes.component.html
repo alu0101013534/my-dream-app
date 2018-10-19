@@ -8,8 +8,11 @@
                 <!--    For por cada heroe, cuando la fila es la misma que el heroe seleccionado angular le coloca la clase selected css, cuando son diferentes angular elimina la clase -->
                 <li *ngFor="let hero of heroes"
                     [class.selected]="hero === selectedHero"
-                    (click)="onSelect(hero)">
-                    <span class="badge">{{hero.id}}</span> <span class="name"> {{hero.name}}</span> <img src="../../../assets/checked.png" *ngIf="hero.pet" >
+                   >
+                   <div (click)="onSelect(hero)">
+                    <span  class="badge">{{hero.id}}</span> <span class="name"> {{hero.name}}</span><img src="../../../assets/checked.png" *ngIf="hero.pet"  ></div>
+                     
+                     
                 </li>
             </ul>
         </div>
@@ -29,8 +32,7 @@
     
     <button (click)="newAssign()">New Assign All</button>
     
-    <button (click)="newAssign()">New Assign</button>  
-    
+    <button (click)="assign()">New Assign</button>
     <button (click)="deleteAll()">Delete All</button> 
     <div class="row"> 
         

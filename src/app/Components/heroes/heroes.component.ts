@@ -14,8 +14,10 @@ export class HeroesComponent implements OnInit {
     selectedPet: Pet;
     onSelect(hero: Hero): void {
         this.selectedHero = hero;
-        this.selectedPet = hero.pet;
+        
         if(hero.pet!=null){
+            
+        this.selectedPet = hero.pet;
         this.heroService.changeMessage(hero.pet);
         }
     }
@@ -34,15 +36,22 @@ export class HeroesComponent implements OnInit {
       deleteAll(): void {
         this.heroService.deleteAll();
      }
+
+
+     assign(): void {
+         
+      console.log("hero: ",this.selectedHero.name);
+      console.log("pet: ",this.selectedPet.name);
+        if(this.selectedPet!=null)
+            this.heroService.assignPartner(this.selectedHero,this.selectedPet);
+     }
      message:string;
 
      receiveMessage($event) {
          
-      console.log("received message");
         this.message = $event
         this.selectedPet = this.heroService.getPet($event);
         
-      console.log("pet: ",this.selectedPet.name);
         this.selectedHero=this.heroService.getHeroFromPet( this.selectedPet);
         
       }
