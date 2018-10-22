@@ -8,6 +8,8 @@ import { HeroDetailComponent } from './Components/hero-detail/hero-detail.compon
 import { PetsComponent } from './Components/pets/pets.component';
 import { SuperpowerComponent } from './Components/superpower/superpower.component';
 import { PetDetailComponent } from './Components/pet-detail/pet-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './Components//dashboard/dashboard.component';
 
 @NgModule({
     declarations: [
@@ -16,11 +18,13 @@ import { PetDetailComponent } from './Components/pet-detail/pet-detail.component
         HeroDetailComponent,
         PetsComponent,
         SuperpowerComponent,
-        PetDetailComponent
+        PetDetailComponent,
+        DashboardComponent
     ],
     imports: [
         BrowserModule,
-        FormsModule
+        FormsModule,
+        AppRoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import { HEROES } from '../Mocks/mock-heroes';
 import { PETS } from '../Mocks/mock-pets';
 import { SUPERPOWERS } from '../Mocks/mock-superpowers';
 import { BehaviorSubject } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class HeroService {
   private messageSource = new BehaviorSubject('1');
   currentMessage = this.messageSource.asObservable();
 
-  getHeroes(): Hero[] {
-    return HEROES;
+  getHeroes(): Observable<Hero[]> {
+    return of(HEROES);
   }
   getPets(): Pet[] {
     return PETS;
@@ -124,6 +125,13 @@ export class HeroService {
     }
 
   }
+
+  
+  getThisHero(id): Observable<Hero> {
+    return of(HEROES.find(hero => hero.id === id))
+  }
+
+
   getHeroFromPet(pet){
     var i;
     if(pet.hero!=null){
