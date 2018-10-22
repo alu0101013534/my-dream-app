@@ -1,8 +1,8 @@
 <h2>My Pets</h2> 
-<a (click)="showToggle()"href="#" class="btn btn-info btn-md">
+<a (click)="showToggle()"href="#"  class="btn btn-primary">
     <div *ngIf="show; else elseBlock"><span    class="glyphicon glyphicon-eye-close"></span> &nbsp;Hide</div>
     <ng-template #elseBlock><span  class="glyphicon glyphicon-eye-open"></span>&nbsp;Show</ng-template>
-  </a>
+</a>
 <ul class="pets" *ngIf="show">
                 <!--    For por cada heroe, cuando la fila es la misma que el heroe seleccionado angular le coloca la clase selected css, cuando son diferentes angular elimina la clase -->
                 <li *ngFor="let pet of pets"
@@ -11,3 +11,10 @@
                     <span class="badge">{{pet.id}}</span> {{pet.name}} <img src="../../../assets/checked.png" *ngIf="pet.hero"  >
                 </li>
 </ul>
+<i class="fa fa-camera-retro fa-lg"></i><i class="fa fa-camera-retro fa-lg"></i>
+
+<link rel="stylesheet" href="../../node_modules/bootstrap/css/bootstrap.min.css">
+<script src="../../node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

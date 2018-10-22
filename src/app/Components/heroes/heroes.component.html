@@ -2,57 +2,41 @@
 <div class="container"> 
 
     <div class="row"> 
-          <div class="col-md-4">
-              <h2>My Heroes</h2> 
-              <a (click)="showToggle()"href="#" class="btn btn-info btn-md">
+        <div class="col-md-4">
+            <h2>My Heroes</h2> 
+            <a (click)="showToggle()"href="#" class="btn btn-primary">
                 <div *ngIf="show; else elseBlock"><span    class="glyphicon glyphicon-eye-close"></span> &nbsp;Hide</div>
                 <ng-template #elseBlock><span  class="glyphicon glyphicon-eye-open"></span>&nbsp;Show</ng-template>
-              </a>
-             
+            </a>
             <ul class="heroes" *ngIf="show">
                 <!--    For por cada heroe, cuando la fila es la misma que el heroe seleccionado angular le coloca la clase selected css, cuando son diferentes angular elimina la clase -->
                 <li *ngFor="let hero of heroes"
                     [class.selected]="hero === selectedHero"
-                   >
-                   <div (click)="onSelect(hero)">
-                    <span  class="badge">{{hero.id}}</span> <span class="name"> {{hero.name}}</span><img src="../../../assets/checked.png" *ngIf="hero.pet"  ></div>
-                     
-                     
+                    (click)="onSelect(hero)">
+                
+                    <span  class="badge">{{hero.id}}</span> {{hero.name}}<img src="../../../assets/checked.png" *ngIf="hero.pet"  >
+                
                 </li>
             </ul>
         </div>
         
         
-          <div class="col-md-4">
-        <app-pets (messageEvent)="receiveMessage($event)"></app-pets>
-        </div>
-         <div class="col-md-4">
-        <app-superpower></app-superpower>
-        </div>
+        
     </div>
 </div>
 
 <div class="container"> 
     
-    
-    <button (click)="newAssign()">New Assign All</button>
-    
-    <button (click)="assign()">New Assign</button>
-    <button (click)="deleteAll()">Delete All</button> 
     <div class="row"> 
         
         <div class="col-md-4">          
 <h2>Hero Details</h2>
         <app-hero-detail [hero]="selectedHero"></app-hero-detail>
         </div>
-        
-        <div class="col-md-4">
-            
-<h2> Pet Details</h2>
-        <app-pet-detail [pet]="selectedPet"></app-pet-detail>
-        </div>
-        
-        <div class="col-md-4">
-            
-
 </div>
+
+<link rel="stylesheet" href="../../node_modules/bootstrap/css/bootstrap.min.css">
+<script src="../../node_modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

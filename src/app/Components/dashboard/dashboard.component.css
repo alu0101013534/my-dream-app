@@ -33,14 +33,30 @@
     color: #eee;
     max-height: 120px;
     min-width: 120px;
-    background-color: #607d8b;
+    background-color: #990000;
     border-radius: 2px;
   }
   .module:hover {
-    background-color: #eee;
+    background-color: #ff9393;
     cursor: pointer;
-    color: #607d8b;
+    color: #710000;
   }
+
+  .modulepet {
+    padding: 20px;
+    text-align: center;
+    color: #eee;
+    max-height: 120px;
+    min-width: 120px;
+    background-color: #3ec441;
+    border-radius: 2px;
+  }
+  .modulepet:hover {
+    background-color: #99ff99;
+    cursor: pointer;
+    color: #004400;
+  }
+
   .grid-pad {
     padding: 10px 0;
   }

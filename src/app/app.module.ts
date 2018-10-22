@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './Components/heroes/heroes.component';
+import { AssignComponent } from './Components/assign/assign.component';
 import { HeroDetailComponent } from './Components/hero-detail/hero-detail.component';
 import { PetsComponent } from './Components/pets/pets.component';
 import { SuperpowerComponent } from './Components/superpower/superpower.component';
@@ -19,7 +20,12 @@ import { DashboardComponent } from './Components//dashboard/dashboard.component'
         PetsComponent,
         SuperpowerComponent,
         PetDetailComponent,
+        AssignComponent,
         DashboardComponent
+    ],
+    exports:[
+        
+        AssignComponent,
     ],
     imports: [
         BrowserModule,

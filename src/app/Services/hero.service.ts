@@ -18,8 +18,8 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return of(HEROES);
   }
-  getPets(): Pet[] {
-    return PETS;
+  getPets(): Observable<Pet[]> {
+    return of(PETS);
   }
   getSuperpowers(): SuperPower[] {
     return SUPERPOWERS;
@@ -131,6 +131,10 @@ export class HeroService {
     return of(HEROES.find(hero => hero.id === id))
   }
 
+  
+  getThisPet(id): Observable<Pet> {
+    return of(PETS.find(pet => pet.id === id))
+  }
 
   getHeroFromPet(pet){
     var i;
